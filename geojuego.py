@@ -218,14 +218,14 @@ print(" ")"""
 #capital = geo[x][0]
 #continente = geo[x][1]
 
-def capital_azar():
-    country, capital_continente = random.choice(list(geo.items()))
-    return capital_continente[0]
+#def capital_azar():
+#    country, capital_continente = random.choice(list(geo.items()))
+#    return capital_continente[0]
 #.title()
 
-memo = capital_azar()
-print("viene memooo")
-print(memo)
+#memo = capital_azar()
+#print("viene memooo")
+#print(memo)
 
 #print(country)
 #print(capital_continente)
@@ -238,24 +238,56 @@ print(memo)
 
 
 
-tonta_lista = ["a", "b", "c"]
-print(tonta_lista)
-random.shuffle(tonta_lista)
-print(tonta_lista)
+#tonta_lista = ["a", "b", "c"]
+#print(tonta_lista)
+#random.shuffle(tonta_lista)
+#print(tonta_lista)
 
-mas_tonta = ["2", "3", "4", "5"]
+#mas_tonta = ["2", "3", "4", "5"]
 
 #print(azar)
 
 #print(list(geo.keys())[list(geo.values()).index("damasco")])
 #print(geo["damasco"])
-print geo["Siria"][0]
+#print (geo["Siria"][0])
 
-for element in geo:
-    if geo[element][0] == "Damasco": #en "Damasco" poner variable de capital random elegida                             #por el programa
-        pais_ganador = element
-        print(pais_ganador)
+#for element in geo:
+#    if geo[element][0] == "Damasco": #en "Damasco" poner variable de capital random elegida                             #por el programa
+#        pais_ganador = element
+#        print(pais_ganador)
+
+def juego_continente():
+    def adivina_continente():
+        continente_secreto = ""
+        continente_secreto =  random.choice(list(geo.items()))
+        return continente_secreto
+
+    continente = adivina_continente()
+    print("pais para adivinar continente: " + continente[0])
+    #print("continente secreto: " + continente[1][1])
+    respuesta_usuario= input("a)América, b)Europa, c)Asia, d)África, e)Oceanía, Su respuesta es: ")
 
 
+    if(respuesta_usuario == "a"):
+        respuesta_usuario = "América"
+    if(respuesta_usuario == "b"):
+        respuesta_usuario = "Europa"
+    if(respuesta_usuario == "c"):
+        respuesta_usuario = "Asia"
+    if(respuesta_usuario == "d"):
+        respuesta_usuario = "África"
+    if(respuesta_usuario == "e"):
+        respuesta_usuario = "Oceanía"
+    if(respuesta_usuario == continente[1][1]):
+        print("¡Respuesta correcta, Muy bien hecho!")
+    else:
+        print("¡No caballo!, " + continente[1][1] + " es el continente al que pertenece " + continente[0])    
+    repetir = input("Desear seguir jugando? [s = si, n = no] ")
+    if(repetir == "s"):
+        juego_continente()
+    else:
+        print("¡Adiós!, espero te hayas divertido")
+    
 
+juego_continente()
 
